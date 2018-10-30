@@ -22,17 +22,20 @@ public class ConcurrencyTest {
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
+        log.debug("----");
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         for (int i = 0; i < clientTotal ; i++) {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
+                    log.debug("add --");
                     add();
                     semaphore.release();
                 } catch (Exception e) {
                     log.error("exception", e);
                 }
+                log.debug("countDown --");
                 countDownLatch.countDown();
             });
         }
