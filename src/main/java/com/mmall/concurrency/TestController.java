@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
 
     @RequestMapping("/test")
+    //不需要返回页面，ResponseBody
     @ResponseBody
     public String test() {
         return "test";
+
     }
 }
