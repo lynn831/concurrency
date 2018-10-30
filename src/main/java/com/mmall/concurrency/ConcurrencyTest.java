@@ -29,13 +29,13 @@ public class ConcurrencyTest {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
-                    log.debug("add --");
+                    log.debug("add -");
                     add();
                     semaphore.release();
                 } catch (Exception e) {
                     log.error("exception", e);
                 }
-                log.debug("countDown --");
+                log.debug("countDown -");
                 countDownLatch.countDown();
             });
         }
