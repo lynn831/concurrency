@@ -39,12 +39,14 @@ public class ConcurrencyTest {
                 countDownLatch.countDown();
             });
         }
+        //所有线程都执行完以后，关闭线程池，统计count的数值
         countDownLatch.await();
         executorService.shutdown();
         log.info("count:{}", count);
     }
 
     private static void add() {
+        //count++是导致线程不安全的罪魁祸首
         count++;
     }
 }
