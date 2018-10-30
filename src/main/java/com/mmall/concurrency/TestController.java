@@ -13,7 +13,7 @@ public class TestController {
     //不需要返回页面，ResponseBody
     @ResponseBody
     public String test() {
-        return "test";
+        return "test--";
 
     }
 }
