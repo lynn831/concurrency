@@ -44,6 +44,7 @@ public class AtomicExample6 {
 
     private static void test() {
         if (isHappened.compareAndSet(false, true)) {
+            //让代码只执行一次，保证不会重复。
             log.info("execute");
         }
     }
