@@ -17,6 +17,8 @@ public class SingletonExample6 {
     // 单例对象
     private static SingletonExample6 instance = null;
 
+
+    //区别之前，之前是静态域，现在是静态块
     static {
         instance = new SingletonExample6();
     }

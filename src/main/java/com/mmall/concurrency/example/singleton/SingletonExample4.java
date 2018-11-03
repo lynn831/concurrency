@@ -13,12 +13,12 @@ public class SingletonExample4 {
     private SingletonExample4() {
 
     }
-
+    //instance = new SingletonExample4() 的过程
     // 1、memory = allocate() 分配对象的内存空间
     // 2、ctorInstance() 初始化对象
     // 3、instance = memory 设置instance指向刚分配的内存
 
-    // JVM和cpu优化，发生了指令重排
+    // JVM和cpu优化，多线程的情况下，会发生指令重排
 
     // 1、memory = allocate() 分配对象的内存空间
     // 3、instance = memory 设置instance指向刚分配的内存

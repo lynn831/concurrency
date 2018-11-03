@@ -16,11 +16,12 @@ public class SingletonExample7 {
     }
 
     public static SingletonExample7 getInstance() {
-        return Singleton.INSTANCE.getInstance();
+        return Singleton.INSTACE.getInstance();
     }
 
     private enum Singleton {
-        INSTANCE;
+        INSTACE;
+
 
         private SingletonExample7 singleton;
 
