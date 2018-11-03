@@ -17,7 +17,7 @@ public class SingletonExample1 {
     // 单例对象
     private static SingletonExample1 instance = null;
 
-    // 静态的工厂方法
+    // 静态的工厂方法,之所以线程不安全，是22,24之间产生不安全
     public static SingletonExample1 getInstance() {
         if (instance == null) {
             instance = new SingletonExample1();

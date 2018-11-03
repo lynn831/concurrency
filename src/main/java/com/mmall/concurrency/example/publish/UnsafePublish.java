@@ -9,7 +9,7 @@ import java.util.Arrays;
 @NotThreadSafe
 public class UnsafePublish {
 
-    private String[] states = {"a", "b", "c"};
+    private final static String[] states = {"a", "b", "c"};
 
     public String[] getStates() {
         return states;
