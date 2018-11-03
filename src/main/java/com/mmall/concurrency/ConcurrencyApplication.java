@@ -25,6 +25,7 @@ public class ConcurrencyApplication extends WebMvcConfigurerAdapter{
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
+		//拦截全部路径
 		registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**");
 	}
 }

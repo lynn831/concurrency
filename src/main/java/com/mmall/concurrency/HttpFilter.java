@@ -25,6 +25,7 @@ public class HttpFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         log.info("do filter, {}, {}", Thread.currentThread().getId(), request.getServletPath());
         RequestHolder.add(Thread.currentThread().getId());
+        //保证拦截器处理完之后，这个请求继续往后传递，继续被处理
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
