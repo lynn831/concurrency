@@ -42,7 +42,7 @@ public class LockExample3 {
         try {
             return map.put(key, value);
         } finally {
-            readLock.unlock();
+            writeLock.unlock();
         }
     }
 

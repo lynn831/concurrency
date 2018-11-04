@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
 @Slf4j
-public class ForkJoinTaskExample extends RecursiveTask<Integer> {
+public class ForkJoinTaskExample extends RecursiveTask<Long> {
 
     public static final int threshold = 2;
     private int start;
@@ -19,8 +19,8 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
     }
 
     @Override
-    protected Integer compute() {
-        int sum = 0;
+    protected Long compute() {
+        long sum = 0;
 
         //如果任务足够小就计算任务
         boolean canCompute = (end - start) <= threshold;
@@ -39,8 +39,8 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
             rightTask.fork();
 
             // 等待任务执行结束合并其结果
-            int leftResult = leftTask.join();
-            int rightResult = rightTask.join();
+            long leftResult = leftTask.join();
+            long rightResult = rightTask.join();
 
             // 合并子任务
             sum = leftResult + rightResult;
@@ -52,10 +52,10 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
         ForkJoinPool forkjoinPool = new ForkJoinPool();
 
         //生成一个计算任务，计算1+2+3+4
-        ForkJoinTaskExample task = new ForkJoinTaskExample(1, 100);
+        ForkJoinTaskExample task = new ForkJoinTaskExample(1, 895624548);
 
         //执行一个任务
-        Future<Integer> result = forkjoinPool.submit(task);
+        Future<Long> result = forkjoinPool.submit(task);
 
         try {
             log.info("result:{}", result.get());
