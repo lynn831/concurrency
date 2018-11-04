@@ -22,7 +22,7 @@ public class ThreadPoolExample4 {
 //                log.warn("schedule run");
 //            }
 //        }, 3, TimeUnit.SECONDS);
-
+        //延迟一秒之后，固定每3秒执行一次任务
         executorService.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
