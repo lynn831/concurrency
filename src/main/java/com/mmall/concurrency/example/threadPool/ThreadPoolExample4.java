@@ -30,7 +30,7 @@ public class ThreadPoolExample4 {
             }
         }, 1, 3, TimeUnit.SECONDS);
 //        executorService.shutdown();
-
+        //new Date() 代表从当前时间开始
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
