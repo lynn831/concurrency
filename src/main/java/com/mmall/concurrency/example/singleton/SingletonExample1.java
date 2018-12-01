@@ -9,7 +9,8 @@ import com.mmall.concurrency.annoations.NotThreadSafe;
 @NotThreadSafe
 public class SingletonExample1 {
 
-    // 私有构造函数
+    // 私有构造函数,如果不写的话，就默认有个public的无参的构造方法
+    //那么用户就可以随时随地的new一个对象，那就不能算是单例了。
     private SingletonExample1() {
 
     }
